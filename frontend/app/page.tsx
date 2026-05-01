@@ -39,7 +39,7 @@ export default function Home() {
   useEffect(() => {
     const veriCek = async () => {
       try {
-        const res = await fetch("http://127.0.0.1:8000/ilanlar");
+        const res = await fetch("https://kync-api.onrender.com/ilanlar");
         const data = await res.json();
         setIlanlar(data.ilanlar);
       } catch (error) {
@@ -486,7 +486,7 @@ export default function Home() {
                     <div className="w-[100px] sm:w-[140px] h-[75px] sm:h-[105px] relative flex-shrink-0 bg-slate-100 rounded-md border border-slate-200 overflow-hidden">
                       {ilan.kapak_resmi ? (
                         <Image
-                          src={`http://127.0.0.1:8000${ilan.kapak_resmi}`}
+                          src={`https://kync-api.onrender.com${ilan.kapak_resmi}`}
                           alt={ilan.baslik}
                           fill
                           className="object-cover"
