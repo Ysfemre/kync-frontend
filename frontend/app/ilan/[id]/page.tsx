@@ -50,7 +50,7 @@ export default function IlanDetay() {
     if (!ilanId) return;
     const ilanGetir = async () => {
       try {
-        const res = await fetch(`http://127.0.0.1:8000/ilanlar/${ilanId}`);
+        const res = await fetch(`https://kync-api.onrender.com/ilanlar/${ilanId}`);
         const data = await res.json();
         if (data.ilan_detayi) {
           setIlan(data.ilan_detayi);
@@ -236,7 +236,7 @@ export default function IlanDetay() {
               <>
                 <Image
                   key={aktifIndeks}
-                  src={`http://127.0.0.1:8000${ilan.galeri[aktifIndeks]}`}
+                  src={`https://kync-api.onrender.com${ilan.galeri[aktifIndeks]}`}
                   alt={`${ilan.baslik} - Görsel ${aktifIndeks + 1}`}
                   fill
                   className="object-contain p-2 lg:p-4 transition-transform duration-700 group-hover:scale-105"
@@ -300,7 +300,7 @@ export default function IlanDetay() {
                     }`}
                   >
                     <Image
-                      src={`http://127.0.0.1:8000${ilan.galeri[i]}`}
+                      src={`https://kync-api.onrender.com${ilan.galeri[i]}`}
                       alt={`Mini ${i}`}
                       fill
                       className="object-cover"
@@ -462,7 +462,7 @@ export default function IlanDetay() {
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={`http://127.0.0.1:8000${ilan.galeri[aktifIndeks]}`}
+              src={`https://kync-api.onrender.com${ilan.galeri[aktifIndeks]}`}
               alt={`${ilan.baslik} - Tam Ekran`}
               fill
               className="object-contain"
