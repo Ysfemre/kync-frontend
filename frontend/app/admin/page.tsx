@@ -94,7 +94,7 @@ export default function AdminPaneli() {
 
   const ilanlariGetir = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/ilanlar");
+      const res = await fetch("https://kync-api.onrender.com/ilanlar");
       const data = await res.json();
 
       const siraliIlanlar = data.ilanlar.sort((a: any, b: any) => {
@@ -115,7 +115,7 @@ export default function AdminPaneli() {
     );
     if (!onay) return;
     try {
-      const res = await fetch(`http://127.0.0.1:8000/ilanlar/${id}`, {
+      const res = await fetch(`https://kync-api.onrender.com/ilanlar/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {
@@ -164,7 +164,7 @@ export default function AdminPaneli() {
     }
 
     try {
-      const res = await fetch(`http://127.0.0.1:8000/ilanlar/${ilan.id}`);
+      const res = await fetch(`https://kync-api.onrender.com/ilanlar/${ilan.id}`);
       if (res.ok) {
         const detayliIlan = await res.json();
 
@@ -314,8 +314,8 @@ export default function AdminPaneli() {
     try {
       const method = duzenlenecekId ? "PUT" : "POST";
       const url = duzenlenecekId
-        ? `http://127.0.0.1:8000/ilanlar/${duzenlenecekId}`
-        : "http://127.0.0.1:8000/ilan-ekle";
+        ? `https://kync-api.onrender.com/ilanlar/${duzenlenecekId}`
+        : "https://kync-api.onrender.com/ilan-ekle";
 
       const res = await fetch(url, {
         method,
@@ -337,7 +337,7 @@ export default function AdminPaneli() {
       if (secilenDosyalar.length > 0 && guncelIlanId) {
         const formData = new FormData();
         secilenDosyalar.forEach((dosya) => formData.append("dosyalar", dosya));
-        await fetch(`http://127.0.0.1:8000/ilanlar/${guncelIlanId}/fotograf`, {
+        await fetch(`https://kync-api.onrender.com/ilanlar/${guncelIlanId}/fotograf`, {
           method: "POST",
           body: formData,
         });
@@ -567,7 +567,7 @@ export default function AdminPaneli() {
                       <div className="w-20 h-20 sm:w-28 sm:h-24 relative flex-shrink-0 bg-slate-100 rounded-lg overflow-hidden border border-slate-100">
                         {ilan.kapak_resmi ? (
                           <Image
-                            src={`http://127.0.0.1:8000${ilan.kapak_resmi}`}
+                            src={`https://kync-api.onrender.com${ilan.kapak_resmi}`}
                             alt="İlan"
                             fill
                             className="object-cover"
@@ -946,7 +946,7 @@ export default function AdminPaneli() {
                           {mevcutFotograflar.map((foto, index) => {
                             const imgUrl = foto.startsWith("http")
                               ? foto
-                              : `http://127.0.0.1:8000${foto}`;
+                              : `https://kync-api.onrender.com${foto}`;
                             return (
                               <div
                                 key={index}
